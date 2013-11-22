@@ -5,6 +5,7 @@
 
 var express = require('express');
 var routes = require('./routes');
+var petitions = require('./routes/petitions');
 var http = require('http');
 var path = require('path');
 
@@ -29,6 +30,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/petitions', petitions.index);
 
 var httpApp = http.createServer(app);
 

@@ -1,0 +1,33 @@
+
+#petitions{
+	.row{
+		border:1px solid #CCC;
+	}
+	.even{
+		background-color:#eee;
+	}
+	.odd{
+		background-color:#fff;
+	}
+
+	#header,
+	#content{
+		width:100%;
+	}
+	
+	.title,
+	.body{
+		padding:5px;
+		float:left;
+	}
+	.title{
+		width:20%;
+	}
+	.body{
+		width:70%;
+	}
+}
+
+.clear{
+	clear:both;
+}

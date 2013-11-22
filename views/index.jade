@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Here's some static content! The	 server doesn't have to be restarted when this type of content changes.
-  each item in dynamiccontent
-    p Access at: #{item.accessDate}
+	h1= title
+	p Here's some static content! The server doesn't have to be restarted when this type of content changes.
+	each item in dynamiccontent
+		p Access at: #{item.accessDate}

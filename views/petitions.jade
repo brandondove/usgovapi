@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	h1 #{title}
+	div(id='petitions')
+		div(id='header')
+			div(class='title') Title
+			div(class='body') Body
+		div(class='clear')
+		div(id='content')
+			each petition, i in petitions
+				div(class='row #{i%2===0 ? "even" : "odd"}')
+					div(class='title') #{petition.title}
+					div(class='body') #{petition.body}
+					div(class='clear')
