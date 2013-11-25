@@ -15,10 +15,14 @@
 		width:100%;
 	}
 	
+	.id,
 	.title,
 	.body{
 		padding:5px;
 		float:left;
+	}
+	.id{
+		width:5%;
 	}
 	.title{
 		width:20%;

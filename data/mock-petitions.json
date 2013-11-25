@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "responseInfo": {
+      "status": 200,
+      "developerMessage": "OK"
+    },
+    "resultset": {
+      "count": 2266,
+      "limit": 3,
+      "offset": 0
+    },
+    "executionTime": 0.069997787475586
+  },
+  "results": [{
+    "id": "52937caba9a0b16e0b00000a",
+    "type": "petition",
+    "title": "overrule the FDA's decision to bar 23andMe from selling their potentially life-saving diagnostic kits.",
+    "body": "We, the healthcare consumers of America, demand that we maintain access to genomics testing services like 23andMe's, which serve as a 100% privately purchased complement to government-regulated healthcare.  \r\n\r\nThe FDA grossly overstates the risks associated with 23andMe's assessments. Statements such as those suggesting that dangers like false positives may \"lead a patient to undergo prophylactic surgery, chemoprevention, intensive screening, or other morbidity-inducing actionsx are outrageous and patently false.\r\n\r\nRisks associated with services like 23andMe's are understood by private consumers, while the benefits of these services (such as early diagnoses for chronic diseases) are significant. The price of over-regulation is lengthy delays in potentially life-saving medical innovations.",
+    "issues": [{
+      "id": "25",
+      "name": "Health Care"
+    }, {
+      "id": "127",
+      "name": "Regulatory Reform"
+    }, {
+      "id": "139",
+      "name": "Science and Space Policy"
+    }],
+    "signatureThreshold": 100000,
+    "signatureCount": 359,
+    "signaturesNeeded": 99641,
+    "url": "https://petitions.whitehouse.gov/petition/overrule-fdas-decision-bar-23andme-selling-their-potentially-life-saving-diagnostic-kits/96BRCYNB",
+    "deadline": 1387989419,
+    "status": "open",
+    "response": null,
+    "created": 1385397419
+  }, {
+    "id": "528e7fdc6889381027000004",
+    "type": "petition",
+    "title": "Instruct the FCC and FAA that cell phone use is not appropriate on flights",
+    "body": "The FCC announced today that it is seeking clearance to allow passenger use of cell phones during flights.  On the tail of a wonderful move allowing electronics throughout the use of the flight, the FCC seeks to go TOO FAR in this instance.  During flights, passengers are forced into a restricted space, often for long periods of time.  Forcing them to listen to the inane, loud, private, personal conversations of a stranger is perhaps the worst idea the FCC has come up with to date.  This would make an already cranky, uncomfortable travel experience exponentially worse, and as a frequent flier and concerned citizen, I think the administration needs to nip this in the bud.  Just because we CAN use our phones at 30,000 feet doesn't mean that we SHOULD be able to.",
+    "issues": [{
+      "id": "9",
+      "name": "Consumer Protections"
+    }, {
+      "id": "127",
+      "name": "Regulatory Reform"
+    }, {
+      "id": "157",
+      "name": "Technology and Telecommunications"
+    }],
+    "signatureThreshold": 100000,
+    "signatureCount": 3086,
+    "signaturesNeeded": 96914,
+    "url": "https://petitions.whitehouse.gov/petition/instruct-fcc-and-faa-cell-phone-use-not-appropriate-flights/6KQqTc6h",
+    "deadline": 1387662556,
+    "status": "open",
+    "response": null,
+    "created": 1385070556
+  }, {
+    "id": "528c5319eab72a012c00000d",
+    "type": "petition",
+    "title": "Chinese government secret human experiments-----Require the attention of the world's people\r\n\r\nx",
+    "body": "x7x\r\n\r\nx(x)x28x3x40x10x\r\n\r\nx\r\n\r\nx\r\n\r\nx24x\r\n\r\nx\r\n\r\nx\r\n\r\nchinax\r\nxhttp://www.1339624141.tumblr.com/",
+    "issues": [{
+      "id": "4",
+      "name": "Civil Rights and Liberties"
+    }, {
+      "id": "28",
+      "name": "Human Rights"
+    }],
+    "signatureThreshold": 100000,
+    "signatureCount": 198,
+    "signaturesNeeded": 99802,
+    "url": "https://petitions.whitehouse.gov/petition/chinese-government-secret-human-experiments-require-attention-worlds-people-\u4e2d\u56fd\u653f\u5e9c\u79d8\u5bc6\u4eba\u4f53\u5b9e\u9a8c\uff0c\u8bf7\u6c42\u4e16\u754c\u4eba\u6c11\u5173\u6ce8/1XmLHFFy",
+    "deadline": 1387520025,
+    "status": "open",
+    "response": null,
+    "created": 1384928025
+  }]
+}

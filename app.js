@@ -1,13 +1,13 @@
-
 /**
  * Module dependencies.
  */
 
-var express = require('express');
-var routes = require('./routes');
-var petitions = require('./routes/petitions');
-var http = require('http');
-var path = require('path');
+var express = require('express'),
+	routes = require('./routes'),
+	petitions = require('./routes/petitions'),
+	petition = require('./routes/petition'),
+	http = require('http'),
+	path = require('path');
 
 var app = express();
 
@@ -26,14 +26,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
 app.get('/petitions', petitions.index);
+app.get('/petitions/:id', petition.index);
 
 var httpApp = http.createServer(app);
 
-httpApp.listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+httpApp.listen(app.get('port'), function() {
+	console.log('Express server listening on port ' + app.get('port'));
 });

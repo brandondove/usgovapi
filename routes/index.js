@@ -8,12 +8,12 @@ var mongo = require('mongodb').MongoClient;
 
 exports.index = function(req, res) {
 
-	mongo.connect('mongodb://127.0.0.1:27017/test', function(err, db) {
+	mongo.connect('mongodb://127.0.0.1:27017', function(err, db) {
 
 		if (err) {
 
 			res.render('error', {
-				message: 'error connecting to database, is the database server running?'
+				message: 'error connecting to database, is the database server running? does the '
 			});
 
 		} else {

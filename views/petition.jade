@@ -1,0 +1,63 @@
+extends layout
+
+block content
+	h2 Selected Petition Id -- #{petId}
+	div(id='petition')
+		div(id='header')
+			div(class='title') Title
+			div(class='clear')
+			div(class='body') #{petition.title}
+		div(class='clear')
+		br
+		div(id='content')
+			div(class='body') Url
+			div(class='clear')
+			div(class='body') #{petition.url}
+			div(class='clear')
+			br
+			div(class='body') Body
+			div(class='clear')
+			div(class='body') #{petition.body}
+			div(class='clear')
+			br
+			div(class='body') Issue Types
+			div(class='clear')
+			each issue, i in petition.issues
+				case i
+					when 1
+						span #{issue.name}
+					default
+						span #{issue.name},&nbsp;
+			div(class='clear')
+			br
+			table
+				tbody
+					tr
+						td Signature Count
+						td Signature Threshold
+						td Signatures Needed
+					tr
+						td #{petition.signatureCount}
+						td #{petition.signatureThreshold}
+						td #{petition.signaturesNeeded}
+			div(class='clear')
+			br
+			table
+				tbody
+					tr
+						td Date Created
+					tr
+						td #{new Date(petition.created*1000).toString()}
+			div(class='clear')
+			br
+			table
+				tbody
+					tr
+						td Deadline
+					tr
+						td #{new Date(petition.deadline*1000).toString()}
+			div(class='clear')
+			br
+			
+
+
