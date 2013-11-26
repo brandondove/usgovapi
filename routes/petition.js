@@ -7,17 +7,31 @@
 var wethepeople = require('../lib/wethepeople').create();
 
 exports.index = function(req, res) {
-	var petId = req.params.id;
-	wethepeople.getPetition(petId, function(err, data) {
-		if (err) {
-			res.render('error', {
-				message: 'error connecting to WeThePeople API, is the service up? Are you behind a proxy?'
-			});
-		} else {
-			res.render('petition', {
-				petId: petId,
-				petition: data.results[0]
-			});
-		}
-	}); // ,true); //for testing behind proxy
+	var petition = undefined,
+	var petId = req.params.id,
+		petitionCallback = function(err, data) {
+			if (err) {
+				res.render('error', {
+					message: 'error connecting to WeThePeople API, is the service up? Are you behind a proxy?'
+				});
+			} else {
+				petition = data.results[0];
+				wethepeople.getSignatures(petId, {}, signaturesCallback, true);
+			}
+		},
+		signaturesCallback = function(err, data) {
+			if (err) {
+				res.render('error', {
+					message: 'error connecting to WeThePeople API, is the service up? Are you behind a proxy?'
+				});
+			} else {
+				res.render('petition', {
+					petId: petId,
+					petition: petition,
+					signatures:data.results
+				});
+			}
+		};
+
+	wethepeople.getPetition(petId, petitionCallback, true);
 };

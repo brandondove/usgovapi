@@ -58,6 +58,21 @@ block content
 						td #{new Date(petition.deadline*1000).toString()}
 			div(class='clear')
 			br
+			table
+				tbody
+					tr
+						td Signed
+						td Zipcode
+						td City
+						td State
+						td Date Signed
+					each signature in signatures
+						tr
+							td= signature.name
+							td= signature.zip
+							td= signature.city
+							td= signature.state
+							td= new Date(petition.deadline*1000).toString()
 			
 
 

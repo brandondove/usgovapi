@@ -11,11 +11,8 @@ var wethepeople = require('../lib/wethepeople').create();
 
 
 exports.index = function(req, res) {
-	var options = {
-		//for testing behind proxy
-		//mock: true
-	};
-	wethepeople.getPetitions(function(err, data) {
+
+	var callback = function(err, data) {
 		if (err) {
 			res.render('error', {
 				message: 'error connecting to WeThePeople API, is the service up? Are you behind a proxy?'
@@ -26,5 +23,7 @@ exports.index = function(req, res) {
 				petitions: data.results
 			});
 		}
-	}, options);
+	};
+
+	wethepeople.getPetitions({}, callback, true);
 };
