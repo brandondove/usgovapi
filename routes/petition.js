@@ -8,7 +8,7 @@ var wethepeople = require('../lib/wethepeople').create();
 
 exports.index = function(req, res) {
 	var petition = undefined,
-	var petId = req.params.id,
+		petId = req.params.id,
 		petitionCallback = function(err, data) {
 			if (err) {
 				res.render('error', {
@@ -28,10 +28,17 @@ exports.index = function(req, res) {
 				res.render('petition', {
 					petId: petId,
 					petition: petition,
-					signatures:data.results
+					signatures: data.results
 				});
 			}
 		};
 
+	//this is forcing synchronization (and all within the scope of 1 request...)
+	//we should be able to call this and getSignatures at the same time
+	//and then provide the results once they are ready...
+	//
+	//it might be better to have wethepeople be an event emitter...
+	//that way, we could just listen for events on both the client/server side
+	//and make requests 
 	wethepeople.getPetition(petId, petitionCallback, true);
 };
