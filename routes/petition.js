@@ -16,7 +16,7 @@ exports.index = function(req, res) {
 				});
 			} else {
 				petition = data.results[0];
-				wethepeople.getSignatures(petId, {}, signaturesCallback, true);
+				wethepeople.getSignatures(petId, {}, signaturesCallback);
 			}
 		},
 		signaturesCallback = function(err, data) {
@@ -45,5 +45,5 @@ exports.index = function(req, res) {
 	 * that way, we could just listen for events on both the client/server side
 	 * and respond with data when it is ready.
 	 */
-	wethepeople.getPetition(petId, petitionCallback, true);
+	wethepeople.getPetition(petId, petitionCallback);
 };

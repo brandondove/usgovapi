@@ -23,5 +23,5 @@ exports.index = function(req, res) {
 		}
 	};
 
-	wethepeople.getPetitions({}, callback, true);
+	wethepeople.getPetitions({}, callback);
 };
