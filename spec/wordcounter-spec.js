@@ -34,14 +34,15 @@ describe("wordcounter", function() {
 		expect(counter.getCount('hello')).toBe(3);
 	});
 
-	it("should return the highest counted word", function() {
+	it("should return the highest counted word and leave the highest counted word there", function() {
 		counter.count('hello world hello');
-		expect(counter.getCount(1)).toBe('hello');
+		expect(counter.getMostFrequent()).toBe('hello');
 	});
 
-	it("should return the nth highest counted word", function() {
+	it("should return the highest counted word and remove the highest counted word there", function() {
 		counter.count('hello world hello');
-		expect(counter.getCount(2)).toBe('world');
+		expect(counter.getMostFrequent(true)).toBe('hello');
+		expect(counter.getMostFrequent(true)).toBe('world');
 	});
 
 });
