@@ -33,12 +33,17 @@ exports.index = function(req, res) {
 			}
 		};
 
-	//this is forcing synchronization (and all within the scope of 1 request...)
-	//we should be able to call this and getSignatures at the same time
-	//and then provide the results once they are ready...
-	//
-	//it might be better to have wethepeople be an event emitter...
-	//that way, we could just listen for events on both the client/server side
-	//and make requests 
+	/*
+	 * this is forcing synchronization (and all within the scope of 1 request...)
+	 * we should be able to call this and getSignatures at the same time
+	 * and then provide the results once they are ready...
+	 * 
+	 * we might be able to cache requests/results (by the options provided for the request)
+	 * and then just serve them up without needing to go out to the API again...
+	 *
+	 * finally, it might be better to have wethepeople be an event emitter...
+	 * that way, we could just listen for events on both the client/server side
+	 * and respond with data when it is ready.
+	 */
 	wethepeople.getPetition(petId, petitionCallback, true);
 };
