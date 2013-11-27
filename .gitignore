@@ -14,4 +14,8 @@ results
 npm-debug.log
 node_modules
 
-public/stylesheets/.sass-cache/d26437b4e253b705733a3548e5a2bf2a1c2e9d56/style.scssc
+public/stylesheets/.sass-cache/
+
+*.sublime-project
+*.sublime-workspace
+*.patch

@@ -37,7 +37,7 @@ exports.index = function(req, res) {
 	 * this is forcing synchronization (and all within the scope of 1 request...)
 	 * we should be able to call this and getSignatures at the same time
 	 * and then provide the results once they are ready...
-	 * 
+	 *
 	 * we might be able to cache requests/results (by the options provided for the request)
 	 * and then just serve them up without needing to go out to the API again...
 	 *
@@ -47,3 +47,10 @@ exports.index = function(req, res) {
 	 */
 	wethepeople.getPetition(petId, petitionCallback);
 };
+
+exports.signatureheatmap = function(req, res) {
+	res.render('signatureheatmap', {
+		title: 'Signature Heat Map',
+		petitionId: req.params.id
+	});
+}

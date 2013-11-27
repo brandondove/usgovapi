@@ -6,10 +6,12 @@ var express = require('express'),
 	routes = require('./routes'),
 	petitions = require('./routes/petitions'),
 	petition = require('./routes/petition'),
+	signatureheatmap = require('./lib/signatureheatmap')
 	http = require('http'),
-	path = require('path');
-
-var app = express();
+	path = require('path'),
+	app = express(),
+	httpApp = http.createServer(app),
+	socketio = require('socket.io').listen(httpApp);
 
 // all environments -- basic express setup
 // default to http://localhost:3000
@@ -32,8 +34,13 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/petitions', petitions.index);
 app.get('/petitions/:id', petition.index);
+app.get('/petitions/signatureheatmap/:id', petition.signatureheatmap);
 
-var httpApp = http.createServer(app);
+socketio.on('connection', function(socket){
+	socket.on('signatureheatmap', function(petitionId){
+		signatureheatmap.create(socket, petitionId);
+	});
+})
 
 httpApp.listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
