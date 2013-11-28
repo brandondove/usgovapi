@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
 					' * Licensed GPLv2+' +
 					' */\n'
 			},
-			ferrari_events: {
+			global: {
 				src: [
 					'public/javascript/lib/global.js',
 					'public/javascript/lib/signatureheatmap.js'
