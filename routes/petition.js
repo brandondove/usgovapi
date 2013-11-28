@@ -35,7 +35,7 @@ exports.index = function(req, res) {
 					petition: petition,
 					petition_created: created.getDate() + ' ' + monthNames[created.getMonth()] + ' ' + created.getFullYear(),
 					petition_deadline: deadline.getDate() + ' ' + monthNames[deadline.getMonth()] + ' ' + deadline.getFullYear(),
-					progress_pct: (petition.signatureCount / petition.signaturesNeeded) * 100,
+					progress_pct: (petition.signatureCount / petition.signatureThreshold) * 100,
 					signatures: data.results
 				});
 			}
