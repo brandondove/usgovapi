@@ -5,7 +5,7 @@
 		return {
 			init: function(mapid) {
 				var mapOptions = {
-					zoom: 3,
+					zoom: 4,
 					center: new google.maps.LatLng(39.8282, -98.5795),
 					mapTypeId: google.maps.MapTypeId.SATELLITE
 				};

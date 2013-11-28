@@ -35,10 +35,20 @@
 	height:400px;
 	overflow:scroll;
 }
-#map-canvas{
-	height:400px;
-	width:400px;
+#map-canvas {
+	height:600px;
+	width:1170px;
+	max-width: 100%;
+	max-height: 100%;
 }
-.clear{
+.clear {
 	clear:both;
+}
+
+.built-with {
+	text-align: right;
+}
+
+.progress {
+	margin-bottom: 0;
 }
