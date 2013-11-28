@@ -27,7 +27,7 @@
 		}
 	})();
 
-	$(document).ready(function() {
+	jQuery(document).ready(function($) {
 		//var consolediv = $('#console');
 		var petitionid = $('#petitionId').val();
 		var socket = io.connect('http://localhost');
