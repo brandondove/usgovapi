@@ -17,7 +17,7 @@ block js
 	script(type='text/javascript', src='/javascript/lib/signatureheatmap.js')
 
 block content
-	h1 #{title}
-	div(id='map-canvas')
-	div(id='console')
-	input(type='hidden',id='petitionId', value='#{petitionId}')
+	h2.page-title #{page_title}
+	div#map-canvas
+	div#console
+	input#petitionId(type='hidden', value='#{petitionId}')
