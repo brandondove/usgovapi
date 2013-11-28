@@ -13,7 +13,7 @@ exports.index = function(req, res) {
 		if (err) {
 
 			res.render('error', {
-				message: 'error connecting to database, is the database server running? does the '
+				message: 'error connecting to database, is the database server running?'
 			});
 
 		} else {
