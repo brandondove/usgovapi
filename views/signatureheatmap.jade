@@ -1,5 +1,16 @@
 extends layout
 
+block breadcrumbs
+	ol.breadcrumb
+		li
+			a(href="/") Home
+		li
+			a(href="/petitions/") Petitions
+		li
+			a(href="/petitions/#{petitionId}") Petition Detail
+		li.active Signature Heat Map
+
+
 block js
 	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization')
 	script(type='text/javascript', src='/socket.io/socket.io.js')
