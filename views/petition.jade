@@ -1,82 +1,87 @@
 extends layout
 
+block breadcrumbs
+	ol.breadcrumb
+		li
+			a(href="/") Home
+		li
+			a(href="/petitions/") Petitions
+		li.active Petition Detail
+
 block content
-	h2 Selected Petition Id -- #{petId}
-	div(id='petition')
-		div(id='header')
-			div(class='title') Title
-			div(class='clear')
-			div(class='body') #{petition.title}
-		div(class='clear')
-		br
-		div(id='content')
-			div(class='body') Url
-			div(class='clear')
-			div(class='body') #{petition.url}
-			div(class='clear')
-			br
-			div(class='body') Body
-			div(class='clear')
-			div(class='body') #{petition.body}
-			div(class='clear')
-			br
-			div(class='body') Issue Types
-			div(class='clear')
-			each issue, i in petition.issues
-				case i
-					when 1
-						span #{issue.name}
-					default
-						span #{issue.name},&nbsp;
-			div(class='clear')
-			br
-			table
+	h2.page-title Petition ##{petId}
+
+	.row
+		.col-lg-8
+			h3 Overview
+			table.table
 				tbody
 					tr
-						td Signature Count
-						td Signature Threshold
-						td Signatures Needed
+						th(scope="row") Title
+						td #{petition.title}
 					tr
-						td #{petition.signatureCount}
-						td #{petition.signatureThreshold}
-						td #{petition.signaturesNeeded}
-			div(class='clear')
-			br
-			table
+						th(scope="row") URL
+						td
+							a(href="#{petition.url}", target="_blank") View on petitions.whitehouse.gov
+					tr
+						th(scope="row") Body
+						td #{petition.body}
+					tr
+						th(scope="row") Issues
+						td
+							each issue, i in petition.issues
+								case i
+									when 1
+										span.label.label-default #{issue.name}
+										&nbsp;
+									default
+										span.label.label-default #{issue.name}
+										&nbsp;
+
+			.panel.panel-default
+				.panel-heading Signatures
+				table.table
+					tbody
+						tr
+							th Signed
+							th Zipcode
+							th City
+							th State
+							th Date Signed
+						each signature in signatures
+							tr
+								td= signature.name
+								td= signature.zip
+								td= signature.city
+								td= signature.state
+								td= new Date(petition.deadline*1000).toString()
+
+		.col-lg-4
+			h3 Dates
+			table.table
 				tbody
 					tr
-						td Date Created
+						th Created
+						td #{petition_created}
 					tr
-						td #{new Date(petition.created*1000).toString()}
-			div(class='clear')
-			br
-			table
-				tbody
-					tr
-						td Deadline
-					tr
-						td #{new Date(petition.deadline*1000).toString()}
-			div(class='clear')
-			br
+						th Deadline
+						td #{petition_deadline}
+
+			h3 Signature Progress
+			ul.list-group
+				li.list-group-item
+					.progress.progress-striped.active
+						.progress-bar(role="progressbar", aria-valuenow="#{petition.signatureCount}", aria-valuemin="0", aria-valuemax="#{petition.signaturesNeeded}", style="width: #{progress_pct}%")
+				li.list-group-item
+					span.badge #{petition.signatureCount}
+					Signature Count
+				li.list-group-item
+					span.badge #{petition.signatureThreshold}
+					Signature Threshold
+				li.list-group-item
+					span.badge #{petition.signaturesNeeded}
+					Signatures Needed
+
+			h3 Heatmap
 			div
 				a(href='/petitions/signatureheatmap/#{petId}') Link to Signatures on a Heat Map!
-			div(class='clear')
-			br
-			table
-				tbody
-					tr
-						td Signed
-						td Zipcode
-						td City
-						td State
-						td Date Signed
-					each signature in signatures
-						tr
-							td= signature.name
-							td= signature.zip
-							td= signature.city
-							td= signature.state
-							td= new Date(petition.deadline*1000).toString()
-			
-
-
