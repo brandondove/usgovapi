@@ -1,25 +1,29 @@
 doctype 5
 html
-    head
-        title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
-        script(type='text/javascript', src='/javascript/jQuery/jquery-2.0.3.min.js')
-        //- layout specific js includes
-        block js
-        //- layout specific css includes
-        block css
-    body
-        #header
-            h1.site-title
-                a(href="/") govApi
-            nav#main
-                ul
-                    li
-                        a(href="/petitions/") Petitions
+	head
+		title gov.api#{title} | Having A Little Fun With The US Government
 
-        #content
-            block content
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 
-        #footer
-            footer
-                span.copyright
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.min.css')
+
+		//- layout specific css includes
+		block css
+	body
+		#page.container
+			.header
+				h1.site-title gov.api
+
+			block breadcrumbs
+
+			block content
+
+			footer.row
+				p.col-md-6 &copy; 2013 Alex &amp; Brandon Dove
+				p.col-md-6.built-with Built with Node.js, MongoDB, and large amounts of coffee.
+
+		script(type='text/javascript', src='//code.jquery.com/jquery-1.10.2.min.js')
+		script(type='text/javascript', src='//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js')
+		block js
