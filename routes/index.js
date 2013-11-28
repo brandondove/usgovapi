@@ -9,8 +9,7 @@ var mongo = require('mongodb').MongoClient;
 exports.index = function(req, res) {
 
 	res.render('index', {
-		title: '',
-		dynamiccontent: results
+		title: ''
 	});
 
 };
