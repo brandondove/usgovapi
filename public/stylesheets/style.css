@@ -23,3 +23,7 @@
 
 .progress {
   margin-bottom: 0; }
+
+.badge-primary {
+  color: #fff;
+  background-color: #3674c5; }

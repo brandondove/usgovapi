@@ -32,10 +32,10 @@ block content
 							each issue, i in petition.issues
 								case i
 									when 1
-										span.label.label-default #{issue.name}
+										span.label.label-primary #{issue.name}
 										&nbsp;
 									default
-										span.label.label-default #{issue.name}
+										span.label.label-primary #{issue.name}
 										&nbsp;
 
 			.panel.panel-default
@@ -74,13 +74,13 @@ block content
 					.progress.progress-striped.active
 						.progress-bar(role="progressbar", aria-valuenow="#{petition.signatureCount}", aria-valuemin="0", aria-valuemax="#{petition.signaturesNeeded}", style="width: #{progress_pct}%")
 				li.list-group-item
-					span.badge #{petition.signatureCount}
+					span.badge.badge-primary #{petition.signatureCount}
 					Signature Count
 				li.list-group-item
-					span.badge #{petition.signatureThreshold}
+					span.badge.badge-primary #{petition.signatureThreshold}
 					Signature Threshold
 				li.list-group-item
-					span.badge #{petition.signaturesNeeded}
+					span.badge.badge-primary #{petition.signaturesNeeded}
 					Signatures Needed
 
 			h3 Visualizations
