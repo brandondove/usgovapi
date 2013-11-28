@@ -12,17 +12,14 @@ block content
 	table#petitions.table.table-hover
 		thead
 			tr
-				th.icon
-				th.title Title
-				th.body Body
+				th.title(colspan="2") Petition Title
 				th.view View
 		tbody#content
 			each petition, i in petitions
 				tr
 					td.icon
-						img(src="http://robohash.org/#{petition.id}?size=100x100&bgset=bg2")
+						img.img-thumbnail(src="http://robohash.org/#{petition.id}?size=50x50&bgset=bg2")
 					td.title #{petition.title}
-					td.body #{petition.body}
 					td.view
 						a.glyphicon.glyphicon-eye-open.petition-link(href='/petitions/#{petition.id}')
 						br

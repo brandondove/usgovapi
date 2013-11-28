@@ -58,7 +58,8 @@ exports.index = function(req, res) {
 
 exports.signatureheatmap = function(req, res) {
 	res.render('signatureheatmap', {
-		title: 'Petitions: Signature Heat Map',
+		title: '( Petition Detail: Signature Heat Map )',
+		page_title: 'Petition Detail: Signature Heat Map',
 		petitionId: req.params.id
 	});
 }

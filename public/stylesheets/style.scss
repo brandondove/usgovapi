@@ -1,9 +1,15 @@
-td.view {
-	font-size: 2em;
-	a {
-		text-decoration: none;
+.table>tbody>tr>td {
+	&.view {
+		font-size: 1.5em;
+		a {
+			text-decoration: none;
+		}
+	}
+	&.title {
+		vertical-align: middle;
 	}
 }
+
 
 #console {
 	height:400px;

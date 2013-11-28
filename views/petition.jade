@@ -22,7 +22,7 @@ block content
 					tr
 						th(scope="row") URL
 						td
-							a(href="#{petition.url}", target="_blank") View on petitions.whitehouse.gov
+							a(href="#{petition.url}", target="_blank")!= 'View on petitions.whitehouse.gov <span class="glyphicon glyphicon-new-window"></span>'
 					tr
 						th(scope="row") Body
 						td #{petition.body}
@@ -57,6 +57,7 @@ block content
 								td= new Date(petition.deadline*1000).toString()
 
 		.col-lg-4
+			img.img-thumbnail(src="http://robohash.org/#{petition.id}?size=360x360&bgset=bg2")
 			h3 Dates
 			table.table
 				tbody
@@ -82,6 +83,6 @@ block content
 					span.badge #{petition.signaturesNeeded}
 					Signatures Needed
 
-			h3 Heatmap
+			h3 Visualizations
 			div
-				a(href='/petitions/signatureheatmap/#{petId}') Link to Signatures on a Heat Map!
+				a(href='/petitions/signatureheatmap/#{petId}')!= '<span class="glyphicon glyphicon-globe"></span> Link to Signatures on a Heat Map!'
