@@ -1,23 +1,7 @@
-#petitions .row {
-  border: 1px solid #CCC; }
-#petitions .even {
-  background-color: #eee; }
-#petitions .odd {
-  background-color: #fff; }
-#petitions #header,
-#petitions #content {
-  width: 100%; }
-#petitions .id,
-#petitions .title,
-#petitions .body {
-  padding: 5px;
-  float: left; }
-#petitions .id {
-  width: 5%; }
-#petitions .title {
-  width: 20%; }
-#petitions .body {
-  width: 70%; }
+td.view {
+  font-size: 2em; }
+  td.view a {
+    text-decoration: none; }
 
 #console {
   height: 400px;
@@ -31,3 +15,9 @@
 
 .clear {
   clear: both; }
+
+.built-with {
+  text-align: right; }
+
+.progress {
+  margin-bottom: 0; }

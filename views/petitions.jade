@@ -1,18 +1,29 @@
 extends layout
 
+block breadcrumbs
+	ol.breadcrumb
+		li
+			a(href="/") Home
+		li.active Petitions
+
 block content
-	h1 #{title}
-	div(id='petitions')
-		div(id='header')
-			div(class='id') ID
-			div(class='title') Title
-			div(class='body') Body
-		div(class='clear')
-		div(id='content')
+	h2.page-title #{page_title}
+
+	table#petitions.table.table-hover
+		thead
+			tr
+				th.icon
+				th.title Title
+				th.body Body
+				th.view View
+		tbody#content
 			each petition, i in petitions
-				div(class='row #{i%2===0 ? "even" : "odd"}')
-					div(class='id')
-						a(class='petition-link', href='/petitions/#{petition.id}') #{i}
-					div(class='title') #{petition.title}
-					div(class='body') #{petition.body}
-					div(class='clear')
+				tr
+					td.icon
+						img(src="http://robohash.org/#{petition.id}?size=50x50&bgset=bg2")
+					td.title #{petition.title}
+					td.body #{petition.body}
+					td.view
+						a.glyphicon.glyphicon-eye-open.petition-link(href='/petitions/#{petition.id}')
+						br
+						a.glyphicon.glyphicon-globe(href='/petitions/signatureheatmap/#{petition.id}')

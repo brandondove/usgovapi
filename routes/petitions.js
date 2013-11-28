@@ -17,7 +17,8 @@ exports.index = function(req, res) {
 			});
 		} else {
 			res.render('petitions', {
-				title: 'Petitions',
+				title: '( Petitions )',
+				page_title: 'Petitions',
 				petitions: data.results
 			});
 		}

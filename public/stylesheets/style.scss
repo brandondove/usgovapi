@@ -1,37 +1,11 @@
-
-#petitions{
-	.row{
-		border:1px solid #CCC;
-	}
-	.even{
-		background-color:#eee;
-	}
-	.odd{
-		background-color:#fff;
-	}
-
-	#header,
-	#content{
-		width:100%;
-	}
-	
-	.id,
-	.title,
-	.body{
-		padding:5px;
-		float:left;
-	}
-	.id{
-		width:5%;
-	}
-	.title{
-		width:20%;
-	}
-	.body{
-		width:70%;
+td.view {
+	font-size: 2em;
+	a {
+		text-decoration: none;
 	}
 }
-#console{
+
+#console {
 	height:400px;
 	overflow:scroll;
 }
