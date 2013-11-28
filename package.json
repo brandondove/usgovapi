@@ -1,6 +1,14 @@
 {
-  "name": "application-name",
+  "name": "govapi",
+  "title": "US Government API",
+  "description": "Just a little fun with the US Government APIs",
   "version": "0.0.1",
+  "homepage": "https://github.com/brandondove/usgovapi/",
+  "author": {
+    "name": "Alex & Brandon Dove",
+    "email": "",
+    "url": "https://github.com/brandondove/usgovapi/"
+  },
   "private": true,
   "scripts": {
     "start": "node app.js",
@@ -13,5 +21,19 @@
     "underscore": "~1.5.2",
     "socket.io": "~0.9.16",
     "node-geocoder": "~0.5.0"
-  }
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.1.2",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-contrib-sass": "~0.2.2"
+  },
+  "keywords": []
 }
