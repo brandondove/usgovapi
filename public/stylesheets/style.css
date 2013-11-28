@@ -1,32 +1,31 @@
 #petitions .row {
-  border: 1px solid #CCC;
-}
+  border: 1px solid #CCC; }
 #petitions .even {
-  background-color: #eee;
-}
+  background-color: #eee; }
 #petitions .odd {
-  background-color: #fff;
-}
+  background-color: #fff; }
 #petitions #header,
 #petitions #content {
-  width: 100%;
-}
+  width: 100%; }
 #petitions .id,
 #petitions .title,
 #petitions .body {
   padding: 5px;
-  float: left;
-}
+  float: left; }
 #petitions .id {
-  width: 5%;
-}
+  width: 5%; }
 #petitions .title {
-  width: 20%;
-}
+  width: 20%; }
 #petitions .body {
-  width: 70%;
-}
+  width: 70%; }
+
+#console {
+  height: 400px;
+  overflow: scroll; }
+
+#map-canvas {
+  height: 400px;
+  width: 400px; }
 
 .clear {
-  clear: both;
-}
+  clear: both; }

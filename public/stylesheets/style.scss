@@ -31,7 +31,14 @@
 		width:70%;
 	}
 }
-
+#console{
+	height:400px;
+	overflow:scroll;
+}
+#map-canvas{
+	height:400px;
+	width:400px;
+}
 .clear{
 	clear:both;
 }

@@ -19,3 +19,5 @@ public/stylesheets/.sass-cache/
 *.sublime-project
 *.sublime-workspace
 *.patch
+
+.sass-cache/*
