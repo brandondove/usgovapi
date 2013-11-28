@@ -54,7 +54,7 @@ block content
 								td= signature.zip
 								td= signature.city
 								td= signature.state
-								td= new Date(petition.deadline*1000).toString()
+								td= new Date(signature.created*1000).toString()
 
 		.col-lg-4
 			img.img-thumbnail(src="http://robohash.org/#{petition.id}?size=360x360&bgset=bg2")
