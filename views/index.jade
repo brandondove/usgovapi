@@ -1,7 +1,34 @@
 extends layout
 
 block content
-	h1= title
-	p Here's some static content! The server doesn't have to be restarted when this type of content changes.
-	each item in dynamiccontent
-		p Access at: #{item.accessDate}
+	.row
+		.col-sm-12.col-md-4.col-lg-4
+			.thumbnail
+				img(src="http://robohash.org/govapi.petitions?size=360x360&bgset=bg2")
+				.caption
+					h3
+						a(href="/petitions/") Petitions API
+					p The Petitions API accesses the US Government online petition database.
+					p
+						a.btn.btn-primary(role="button", href="/petitions/") Access Petitions
+		.col-sm-12.col-md-4.col-lg-4
+			.thumbnail
+				img(src="http://robohash.org/govapi.comingsoon1?size=360x360&bgset=bg2")
+				.caption
+					h3 Coming Soon
+					p We will be incorporating new APIs when it makes sense to do so.
+					p
+						a.btn.btn-primary(role="button", href="#", disabled="disabled") Coming Soon
+		.col-sm-12.col-md-4.col-lg-4
+			.thumbnail
+				img(src="http://robohash.org/govapi.comingsoon2?size=360x360&bgset=bg2")
+				.caption
+					h3 Coming Soon
+					p We will be incorporating new APIs when it makes sense to do so.
+					p
+						a.btn.btn-primary(role="button", href="#", disabled="disabled") Coming Soon
+
+	h2 Recent Access
+	ul.list-group
+		each item in dynamiccontent
+			li.list-group-item #{item.agent} (#{item.accessDate})

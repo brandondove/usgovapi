@@ -31,13 +31,13 @@ exports.index = function(req, res) {
 				col.insert({
 					'accessDate': new Date().toISOString()
 				}, function(err, docs) {
-					console.log('inserting a cool thing');
+					console.log(req);
 				});
 
 				//get all results, convert it to an array, then render the response.
 				col.find().toArray(function(err, results) {
 					res.render('index', {
-						title: 'Hello World',
+						title: '',
 						dynamiccontent: results
 					});
 				});
@@ -45,7 +45,7 @@ exports.index = function(req, res) {
 			});
 
 		}
-		
+
 	});
 
 };
