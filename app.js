@@ -6,7 +6,8 @@ var express = require('express'),
 	routes = require('./routes'),
 	petitions = require('./routes/petitions'),
 	petition = require('./routes/petition'),
-	signatureheatmap = require('./lib/signatureheatmap')
+	signatureheatmap = require('./lib/signatureheatmap'),
+	petitiondetail = require('./lib/petitiondetail'),
 	http = require('http'),
 	path = require('path'),
 	app = express(),
@@ -31,14 +32,24 @@ if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
+/*
+ * Request Handlers
+ */
 app.get('/', routes.index);
 app.get('/petitions', petitions.index);
 app.get('/petitions/:id', petition.index);
 app.get('/petitions/signatureheatmap/:id', petition.signatureheatmap);
 
-socketio.on('connection', function(socket){
-	socket.on('signatureheatmap', function(petitionId){
+/*
+ * Client-Server event listeners
+ */
+socketio.on('connection', function(socket) {
+	socket.on('signatureheatmap', function(petitionId) {
 		signatureheatmap.create(socket, petitionId);
+	});
+
+	socket.on('petitiondetail', function(petitionId) {
+		petitiondetail.create(socket, petitionId);
 	});
 })
 

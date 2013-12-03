@@ -1,4 +1,4 @@
-(function() {
+(function($) {
 	var signatureheatmap = (function() {
 		var map, pointarray, heatmap;
 
@@ -27,7 +27,7 @@
 		}
 	})();
 
-	jQuery(document).ready(function($) {
+	$(document).ready(function() {
 		//var consolediv = $('#console');
 		var petitionid = $('#petitionId').val();
 		var socket = io.connect('http://localhost');
@@ -42,4 +42,4 @@
 			signatureheatmap.addLatLonPoint(latlon.latitude, latlon.longitude);
 		});
 	})
-})();
+})(jQuery);

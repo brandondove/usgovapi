@@ -8,35 +8,31 @@ block breadcrumbs
 			a(href="/petitions/") Petitions
 		li.active Petition Detail
 
+block js
+	script(type='text/javascript', src='/socket.io/socket.io.js')
+	script(type='text/javascript', src='/javascript/lib/petitiondetail.js')
+
 block content
 	h2.page-title Petition ##{petId}
 
-	.row
+	.row#petition-container
 		.col-lg-8
 			h3 Overview
 			table.table
 				tbody
 					tr
 						th(scope="row") Title
-						td #{petition.title}
+						td#petition-title
 					tr
 						th(scope="row") URL
 						td
-							a(href="#{petition.url}", target="_blank")!= 'View on petitions.whitehouse.gov <span class="glyphicon glyphicon-new-window"></span>'
+							a#petition-url(href="", target="_blank")!= 'View on petitions.whitehouse.gov <span class="glyphicon glyphicon-new-window"></span>'
 					tr
 						th(scope="row") Body
-						td #{petition.body}
+						td#petition-body &nbsp;
 					tr
 						th(scope="row") Issues
-						td
-							each issue, i in petition.issues
-								case i
-									when 1
-										span.label.label-primary #{issue.name}
-										&nbsp;
-									default
-										span.label.label-primary #{issue.name}
-										&nbsp;
+						td#petition-issues &nbsp;
 
 			.panel.panel-default
 				.panel-heading Signatures
@@ -86,3 +82,4 @@ block content
 			h3 Visualizations
 			div
 				a(href='/petitions/signatureheatmap/#{petId}')!= '<span class="glyphicon glyphicon-globe"></span> Link to Signatures on a Heat Map!'
+			input#petitionId(type='hidden', value='#{petId}')
