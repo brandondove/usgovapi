@@ -9,20 +9,8 @@
 var wethepeople = require('../lib/wethepeople').create();
 
 exports.index = function(req, res) {
-
-	var callback = function(err, data) {
-		if (err) {
-			res.render('error', {
-				message: 'error connecting to WeThePeople API, Is the service up? Are you behind a proxy?'
-			});
-		} else {
-			res.render('petitions', {
-				title: '( Petitions )',
-				page_title: 'Petitions',
-				petitions: data.results
-			});
-		}
-	};
-
-	wethepeople.getPetitions({}, callback);
+	res.render('petitions', {
+		title: '( Petitions )',
+		page_title: 'Petitions'
+	});
 };

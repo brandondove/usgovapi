@@ -6,6 +6,14 @@ block breadcrumbs
 			a(href="/") Home
 		li.active Petitions
 
+block js
+	script(type='text/javascript', src='/socket.io/socket.io.js')
+	script(type='text/javascript', src='https://raw.github.com/janl/mustache.js/master/mustache.js')
+	script(type='text/javascript', src='https://raw.github.com/jonnyreeves/jquery-Mustache/master/jquery.mustache.js')
+	script(type='text/javascript', src='/javascript/petitionstable.js')
+	script(type='text/javascript', src='/javascript/petitionscontroller.js')
+
+
 block content
 	h2.page-title #{page_title}
 
@@ -15,12 +23,3 @@ block content
 				th.title(colspan="2") Petition Title
 				th.view View
 		tbody#content
-			each petition, i in petitions
-				tr
-					td.icon
-						img.img-thumbnail(src="http://robohash.org/#{petition.id}?size=50x50&bgset=bg2")
-					td.title #{petition.title}
-					td.view
-						a.glyphicon.glyphicon-eye-open.petition-link(href='/petitions/#{petition.id}')
-						br
-						a.glyphicon.glyphicon-globe(href='/petitions/signatureheatmap/#{petition.id}')

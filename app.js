@@ -6,8 +6,10 @@ var express = require('express'),
 	routes = require('./routes'),
 	petitions = require('./routes/petitions'),
 	petition = require('./routes/petition'),
-	signatureheatmap = require('./lib/signatureheatmap'),
-	petitiondetail = require('./lib/petitiondetail'),
+	petitiondetails = require('./lib/petitiondetails'),
+	petitionstable = require('./lib/petitionstable'),
+	signaturestable = require('./lib/signaturestable'),
+	signaturesheatmap = require('./lib/signaturesheatmap'),
 	http = require('http'),
 	path = require('path'),
 	app = express(),
@@ -38,19 +40,29 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/petitions', petitions.index);
 app.get('/petitions/:id', petition.index);
-app.get('/petitions/signatureheatmap/:id', petition.signatureheatmap);
+app.get('/petitions/signaturesheatmap/:id', petition.signaturesheatmap);
 
 /*
  * Client-Server event listeners
  */
 socketio.on('connection', function(socket) {
-	socket.on('signatureheatmap', function(petitionId) {
-		signatureheatmap.create(socket, petitionId);
+
+	socket.on('petitionstable', function() {
+		petitionstable.create(socket, {});
 	});
 
-	socket.on('petitiondetail', function(petitionId) {
-		petitiondetail.create(socket, petitionId);
+	socket.on('petitiondetails', function(petitionId) {
+		petitiondetails.create(socket, petitionId);
 	});
+
+	socket.on('signaturesheatmap', function(petitionId) {
+		signaturesheatmap.create(socket, petitionId, {});
+	});
+
+	socket.on('signaturestable', function(petitionId) {
+		signaturestable.create(socket, petitionId, {});
+	});
+
 })
 
 httpApp.listen(app.get('port'), function() {

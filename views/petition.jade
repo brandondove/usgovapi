@@ -10,10 +10,14 @@ block breadcrumbs
 
 block js
 	script(type='text/javascript', src='/socket.io/socket.io.js')
-	script(type='text/javascript', src='/javascript/lib/petitiondetail.js')
+	script(type='text/javascript', src='https://raw.github.com/janl/mustache.js/master/mustache.js')
+	script(type='text/javascript', src='https://raw.github.com/jonnyreeves/jquery-Mustache/master/jquery.mustache.js')
+	script(type='text/javascript', src='/javascript/petitiondetails.js')
+	script(type='text/javascript', src='/javascript/signaturestable.js')
+	script(type='text/javascript', src='/javascript/petitioncontroller.js')
 
 block content
-	h2.page-title Petition ##{petId}
+	h2.page-title Petition ##{petitionId}
 
 	.row#petition-container
 		.col-lg-8
@@ -22,21 +26,21 @@ block content
 				tbody
 					tr
 						th(scope="row") Title
-						td#petition-title
+						td#ptitle
 					tr
 						th(scope="row") URL
 						td
-							a#petition-url(href="", target="_blank")!= 'View on petitions.whitehouse.gov <span class="glyphicon glyphicon-new-window"></span>'
+							a#purl
 					tr
 						th(scope="row") Body
-						td#petition-body &nbsp;
+						td#pbody
 					tr
 						th(scope="row") Issues
-						td#petition-issues &nbsp;
+						td#pissues
 
 			.panel.panel-default
 				.panel-heading Signatures
-				table.table
+				table.table#signatures
 					tbody
 						tr
 							th Signed
@@ -44,42 +48,34 @@ block content
 							th City
 							th State
 							th Date Signed
-						each signature in signatures
-							tr
-								td= signature.name
-								td= signature.zip
-								td= signature.city
-								td= signature.state
-								td= new Date(signature.created*1000).toString()
 
 		.col-lg-4
-			img.img-thumbnail(src="http://robohash.org/#{petition.id}?size=360x360&bgset=bg2")
+			img.img-thumbnail(src="http://robohash.org/#{petitionId}?size=360x360&bgset=bg2")
 			h3 Dates
 			table.table
 				tbody
 					tr
 						th Created
-						td #{petition_created}
+						td#pcreated
 					tr
 						th Deadline
-						td #{petition_deadline}
+						td#pdeadline
 
 			h3 Signature Progress
 			ul.list-group
 				li.list-group-item
-					.progress.progress-striped.active
-						.progress-bar(role="progressbar", aria-valuenow="#{petition.signatureCount}", aria-valuemin="0", aria-valuemax="#{petition.signaturesNeeded}", style="width: #{progress_pct}%")
+					#progressbar
 				li.list-group-item
-					span.badge.badge-primary #{petition.signatureCount}
-					Signature Count
+					Signature Count &nbsp;
+					span#psignaturecount
 				li.list-group-item
-					span.badge.badge-primary #{petition.signatureThreshold}
-					Signature Threshold
+					Signature Threshold &nbsp;
+					span#psignaturethreshold
 				li.list-group-item
-					span.badge.badge-primary #{petition.signaturesNeeded}
-					Signatures Needed
+					Signatures Needed &nbsp;
+					span#psignaturesneeded
 
 			h3 Visualizations
 			div
-				a(href='/petitions/signatureheatmap/#{petId}')!= '<span class="glyphicon glyphicon-globe"></span> Link to Signatures on a Heat Map!'
-			input#petitionId(type='hidden', value='#{petId}')
+				a(href='/petitions/signaturesheatmap/#{petitionId}')!= '<span class="glyphicon glyphicon-globe"></span> Link to Signatures on a Heat Map!'
+			input#petitionId(type='hidden', value='#{petitionId}')

@@ -1,0 +1,57 @@
+<script type="text/html" id="petition-title">
+	<td id='ptitle'>
+		{{title}}
+	</td>
+</script>
+
+<script type="text/html" id="petition-body">
+	<td id='pbody'>
+		{{body}}
+	</td>
+</script>
+
+<script type="text/html" id="petition-body">
+	<td id='pbody'>
+		{{body}}
+	</td>
+</script>
+
+<script type="text/html" id="petition-created">
+	<td id='pcreated'>
+		{{created}}
+	</td>
+</script>
+
+<script type="text/html" id="petition-deadline">
+	<td id='pdeadline'>
+		{{deadline}}
+	</td>
+</script>
+
+<script type="text/html" id="petition-issue">
+	<span class='label label-primary'>{{issue}}</span>&nbsp;
+</script>
+
+<script type="text/html" id="signature-count">
+	<span class='badge badge-primary'>{{signatureCount}}</span>
+</script>
+
+<script type="text/html" id="signature-threshold">
+	<span class='badge badge-primary'>{{signatureThreshold}}</span>
+</script>
+
+<script type="text/html" id="signatures-needed">
+	<span class='badge badge-primary'>{{signaturesNeeded}}</span>
+</script>
+
+<script type="text/html" id="prog-bar">
+	<div class='progress-striped active progress' id='progress'>
+		<div style="width: {{progress}}%" class='progress-bar' role='progressbar' aria-valuemin="0" aria-valuenow="{{signatureCount}}" aria-valuemax="{{signatureThreshold}}"/>
+	</div>
+</script>
+
+<script type="text/html" id="petition-url">
+	<a id='petition-url/' href="{{url}}" target="_blank">
+		View on petitions.whitehouse.gov <span class="glyphicon glyphicon-new-window"></span>
+	</a>
+</script>
