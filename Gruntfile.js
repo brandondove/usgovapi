@@ -13,16 +13,22 @@ module.exports = function( grunt ) {
 					' */\n'
 			},
 			global: {
+				//not sure about this... we don't really want to combine
+				//everything into one place, because we have multiple
+				//pages with "document.ready" events, etc...
+				//
+				//it won't hurt anything, but I'm not sure it's the most useful..
+				//it might be cool if we could have multiple destination files
 				src: [
-					'public/javascript/lib/global.js',
-					'public/javascript/lib/signatureheatmap.js'
+					'public/javascript/*.js'
 				],
-				dest: 'public/javascript/lib/combined.js'
+				dest: 'public/javascript/combined.js'
 			}
 		},
 		jshint: {
 			all: [
 				'Gruntfile.js',
+				'public/javascripts/*.js',
 				'public/javascripts/**/*.js',
 				'public/javascripts/test/**/*.js'
 			],
@@ -49,7 +55,7 @@ module.exports = function( grunt ) {
 		uglify: {
 			all: {
 				files: {
-					'public/javascript/lib/combined.min.js': ['public/javascript/lib/combined.js']
+					'public/javascript/combined.min.js': ['public/javascript/combined.js']
 				},
 				options: {
 					banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
