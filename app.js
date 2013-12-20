@@ -42,6 +42,8 @@ app.get('/petitions', petitions.index);
 app.get('/petitions/:id', petition.index);
 app.get('/petitions/signaturesheatmap/:id', petition.signaturesheatmap);
 
+socketio.set('log level', 1);
+
 /*
  * Client-Server event listeners
  */
